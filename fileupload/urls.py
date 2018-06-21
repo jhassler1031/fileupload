@@ -16,18 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from django.conf.urls import url
 from django.conf import settings
 
 
 
-from file_app.views import FileView
+from file_app.views import FileView, FileDestroyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('file/', include('file_app.urls')),  Did not need these
     #url(r'^file/', include('file_app.urls')),
-    path('upload/', FileView.as_view(), name='file-upload')
+    path('upload/', FileView.as_view(), name='file-upload'),
+    path('upload/<int:pk>', FileDestroyView.as_view()),
 ]
 
 if settings.DEBUG is True:

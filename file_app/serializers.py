@@ -5,4 +5,4 @@ from file_app.models import File
 class FileSerializer(serializers.ModelSerializer):
   class Meta():
     model = File
-    fields = ['file', 'remark', 'timestamp']
+    fields = ['id', 'file', 'remark', 'timestamp']
